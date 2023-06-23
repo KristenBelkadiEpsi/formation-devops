@@ -4,7 +4,9 @@
   "description": "\"# formation-devops\"",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/"
+    "test": "mocha tests/",
+    "lint": "eslint ./ --config .eslintrc.json --fix",
+    "prettier": "prettier . --ignore-path .gitignore --write"
   },
   "keywords": [],
   "author": "",
