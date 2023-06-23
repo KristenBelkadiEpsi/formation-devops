@@ -7,32 +7,6 @@ on:
     branches-ignore: [master]
     
 jobs:
-    prettier:
-      name: 'Prettier'
-      runs-on: ubuntu-latest
-      defaults:
-        run:
-          working-directory: ./
-  
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v3
-          with:
-            fetch-depth: 0
-            ref: ${{ github.head_ref }}
-  
-        - name: Use Node.js 18.x
-          uses: actions/setup-node@v3
-          with:
-            cache-dependency-path: ./package-lock.json
-            node-version: 18.x
-            cache: 'npm'
-  
-        - name: prettier
-          run: |
-            npm install -g prettier
-            npm install --legacy-peer-deps
-            npm run prettier
   linter:
     name: 'ESLint'
     runs-on: ubuntu-latest
