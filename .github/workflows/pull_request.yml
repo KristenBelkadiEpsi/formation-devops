@@ -3,6 +3,8 @@ name: Pull request
 on:
   push:
     branches-ignore: [master]
+  pull_request:
+    branches-ignore: [master]
 jobs:
   linter:
     name: "ESLint"
