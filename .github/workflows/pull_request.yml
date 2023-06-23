@@ -29,6 +29,7 @@ jobs:
 
       - name: Lint
         run: |
+          npm install -g eslint
           npm install --legacy-peer-deps
           npm run lint
   build_and_unit_test:
