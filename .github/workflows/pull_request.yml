@@ -7,7 +7,7 @@ on:
     branches-ignore: [master]
 jobs:
   linter:
-    name: "ESLint"
+    name: 'ESLint'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -25,15 +25,42 @@ jobs:
         with:
           cache-dependency-path: ./package-lock.json
           node-version: 18.x
-          cache: "npm"
+          cache: 'npm'
 
       - name: Lint
         run: |
           npm install -g eslint
           npm install --legacy-peer-deps
           npm run lint
+  prettier:
+    name: 'Prettier'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          cache-dependency-path: ./package-lock.json
+          node-version: 18.x
+          cache: 'npm'
+
+      - name: prettier
+        run: |
+          npm install -g prettier
+          npm install --legacy-peer-deps
+          npm run prettier
+
   build_and_unit_test:
-    name: "Tests unitaires"
+    name: 'Tests unitaires'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -45,9 +72,9 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: "${{ matrix.node }}"
+          node-version: '${{ matrix.node }}'
       - uses: actions/checkout@v3
-      - name: "Cache node_modules"
+      - name: 'Cache node_modules'
         uses: actions/cache@v3
         with:
           path: ~/.npm
