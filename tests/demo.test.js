@@ -5,3 +5,4 @@ var User = function (name) {
     var tom = new User('tom');should(tom.name).be.equal('tom');
   });
 });
+""
