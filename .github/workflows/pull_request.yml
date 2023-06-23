@@ -33,7 +33,6 @@ jobs:
           npm install --legacy-peer-deps
           npm run prettier
 
-
   linter:
     name: 'ESLint'
     runs-on: ubuntu-latest
