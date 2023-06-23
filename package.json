@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha tests/",
     "lint": "eslint ./ --config .eslintrc.json --fix",
-    "prettier": "prettier . --ignore-path .gitignore --write \"*/.+(js|md|json)\""
+    "prettier": "prettier . --ignore-path .gitignore --write"
   },
   "keywords": [],
   "author": "",
